@@ -67,6 +67,6 @@ public:
 };
 int main()
 {
-	std::cout << "Hello Blockchain! Very nice to meet you! My name is 	main()" << std::endl;
+	std::cout << "Hello Blockchain! Very nice to meet you! My name is David	main()" << std::endl;
 		return 0;
 }
