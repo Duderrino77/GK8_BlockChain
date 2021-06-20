@@ -44,7 +44,7 @@ public:
 	//Assumption: all the transaction in the blockchain ("firstBlock linkedlist") are valid
 	//return whether or not the new transaction is valid, given this blockchain
 	//No need to validate the crypto signature
-	bool isValid(const Transaction& newTransaction)const
+	bool isValid(const Transaction& newTransaction) const
 	{
 		if (!newTransaction.from || !newTransaction.to || !newTransaction.fee || !newTransaction.creationTime)
 			return false;
@@ -65,7 +65,7 @@ public:
 		Block* curBlock = m_firstBlock;
 		do
 		{
-			for (auto trans : curBlock->trans)
+			for (const auto& trans : curBlock->trans)
 				if (!memcmp(trans.signature, newTransaction.signature, SIG_LENGTH))
 					return false;
 		} while (curBlock = curBlock->next);
@@ -79,7 +79,7 @@ public:
 			if (newTransaction.from == curBlock->miner)
 				wallet += MONEY_CREATED_FOR_THE_MINER_EACH_BLOCK;
 
-			for (auto trans : curBlock->trans)
+			for (const auto& trans : curBlock->trans)
 			{
 				//collect fees if creator's wallet is the miner
 				if (newTransaction.from == curBlock->miner)
