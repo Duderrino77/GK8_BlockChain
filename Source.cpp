@@ -70,7 +70,7 @@ public:
 					return false;
 		} while (curBlock = curBlock->next);
 
-		//calculate transaction amount validity from genesis block
+		//calculate transaction amount validity from the genesis block
 		curBlock = m_firstBlock;
 		uint64_t wallet = 0;
 
