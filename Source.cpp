@@ -40,7 +40,7 @@ class Blockchain
 	Block* m_firstBlock;
 public:
 	//assumption firstBlock is not null
-	Blockchain(Block* firstBlock) :m_firstBlock(firstBlock) {}
+	Blockchain(Block* firstBlock) : m_firstBlock(firstBlock) {}
 	//Assumption: all the transaction in the blockchain ("firstBlock linkedlist") are valid
 	//return whether or not the new transaction is valid, given this blockchain
 	//No need to validate the crypto signature
@@ -99,31 +99,31 @@ public:
 		return true;
 	}
 };
-int main()
-{
-	std::cout << "Hello Blockchain! Very nice to meet you! My name is 	main()" << std::endl;
-
-	Transaction a1{ 1,2,3,4,5,{1,1,1,1,1,1,1,1} };
-	Transaction a2{ 1,2,3,4,6,{1,1,1,1,1,1,1,5} };
-	Transaction a3{ 1,2,3,4,7,{1,1,1,1,1,1,1,3} };
-	Transaction b1{ 1,2,3,4,8,{1,1,1,1,1,1,1,4} };
-	Transaction b2{ 1,2,3,4,9,{1,1,1,1,1,1,1,5} };
-	Block blk1, blk2;
-	blk1.miner = 123;
-	blk1.next = nullptr;
-	blk1.trans.push_back(a1);
-	blk1.trans.push_back(a2);
-	blk1.trans.push_back(a3);
-
-	blk2.miner = 234;
-	blk2.next = nullptr;
-	blk2.trans.push_back(b1);
-
-
-	blk1.next = &blk2;
-
-	Blockchain blkchain(&blk1);
-	cout << blkchain.isValid(b2);
-
-	return 0;
-}
+//int main()
+//{
+//	std::cout << "Hello Blockchain! Very nice to meet you! My name is 	main()" << std::endl;
+//
+//	Transaction a1{ 1,2,3,4,5,{1,1,1,1,1,1,1,1} };
+//	Transaction a2{ 1,2,3,4,6,{1,1,1,1,1,1,1,5} };
+//	Transaction a3{ 1,2,3,4,7,{1,1,1,1,1,1,1,3} };
+//	Transaction b1{ 1,2,3,4,8,{1,1,1,1,1,1,1,4} };
+//	Transaction b2{ 1,2,3,4,9,{1,1,1,1,1,1,1,5} };
+//	Block blk1, blk2;
+//	blk1.miner = 123;
+//	blk1.next = nullptr;
+//	blk1.trans.push_back(a1);
+//	blk1.trans.push_back(a2);
+//	blk1.trans.push_back(a3);
+//
+//	blk2.miner = 234;
+//	blk2.next = nullptr;
+//	blk2.trans.push_back(b1);
+//
+//
+//	blk1.next = &blk2;
+//
+//	Blockchain blkchain(&blk1);
+//	cout << blkchain.isValid(b2);
+//
+//	return 0;
+//}
